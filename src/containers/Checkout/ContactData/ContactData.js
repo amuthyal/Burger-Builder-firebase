@@ -17,11 +17,10 @@ class ContactData extends Component {
 
     orderHandler = (event) => {
         event.preventDefault();
-       // this is for saving it in the firebase
         this.setState({loading: true})
         const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.price,
+            ingredients: this.props.ingredients,
+            price: this.props.price,
             customer: {
                 name: 'akhila muthyala',
                 address:{

@@ -13,9 +13,10 @@ componentWillMount(){
     const ingredients = {};
     let price = 0;
     for (let param of query.entries()){
-        if(param[0]=== 'price'){
+        if(param[0] === 'price'){
             price = param[1];
-        }else {
+        }
+        else {
             ingredients[param[0]] = +param[1];
         }
     }
@@ -37,11 +38,9 @@ checkoutContinuedHandler = () => {
             ingredients={this.state.ingredients}
             checkoutCancelled= {this.checkoutCancelledHandler}
             checkoutContinued = {this.checkoutContinuedHandler}/>
+
             <Route path={this.props.match.path + '/contact-data'}
-             render = {(props) => (<ContactData 
-             ingredients= {this.state.ingredients} 
-             price = {this.state.totalPrice}
-             {...props}/>)}/>
+             render = {(props) => (<ContactData ingredients= {this.state.ingredients} price = {this.state.totalPrice} {...props}/>)}/>
         </div>
      );
  }
