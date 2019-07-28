@@ -8,22 +8,23 @@ const input = (props) => {
         inputElement = 
         <input  className={myClasses.InputElement} 
          {...props.elementConfig} 
-         value = {props.value}/>;
+         value = {props.value} onChange = {props.changed}/>;
         break;
         case('textarea'):
         inputElement = 
         <textarea  className={myClasses.InputElement} 
         {...props.elementConfig} 
-        value = {props.value}/>;
+        value = {props.value} onChange = {props.changed}/>;
         // eslint-disable-next-line no-fallthrough
         case('select'):
         inputElement = (
         <select  
             className={myClasses.InputElement} 
-            value = {props.value}>
+            value = {props.value}
+            onChange = {props.changed}>
             {props.elementConfig.options.map(option => (
                 <option key= {option.value} value= {option.value}> {option.displayValue} </option>
-            ))}
+            ))} 
             </select>
         );
         break;
@@ -31,7 +32,7 @@ const input = (props) => {
             inputElement = 
             <input className={myClasses.InputElement}
              {...props.elementConfig} 
-             value = {props.value}/>;
+             value = {props.value} onChange = {props.changed}/>;
     }
 
    return ( 
