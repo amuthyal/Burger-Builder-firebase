@@ -15,6 +15,17 @@ const input = (props) => {
         <textarea  className={myClasses.InputElement} 
         {...props.elementConfig} 
         value = {props.value}/>;
+        // eslint-disable-next-line no-fallthrough
+        case('select'):
+        inputElement = (
+        <select  
+            className={myClasses.InputElement} 
+            value = {props.value}>
+            {props.elementConfig.options.map(option => (
+                <option key= {option.value} value= {option.value}> {option.displayValue} </option>
+            ))}
+            </select>
+        );
         break;
         default:
             inputElement = 
